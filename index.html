@@ -1,22 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Práctica web — Informática III</title>
-  </head>
-  <body class="bg-gray-100 text-gray-800">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Productos</title>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen flex flex-col p-4">
 
-    <!-- PARTE A: comprobación de Tailwind.
-         Si esta barra se ve azul con texto blanco, Tailwind está funcionando.
-         Bórrala cuando termines la Parte A. -->
-    <div class="bg-blue-600 text-white text-center p-4 font-semibold">
-      ✅ Si ves esta barra azul, Tailwind está funcionando
+  <!-- Header -->
+  <header class="bg-blue-600 text-white p-6 rounded-lg shadow mb-6 text-center">
+    <h1 class="text-3xl font-bold">MOVIKA</h1>
+    <p class="text-sm mt-1">Catálogo oficial de productos</p>
+  </header>
+
+  <!-- Main con la cuadrícula de 1 col en celular y 3 en md -->
+  <main class="flex-grow">
+    <div id="catalogo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      
+      <!-- Tarjeta 1 -->
+      <div class="bg-white rounded-lg shadow p-4 flex flex-col justify-between">
+        <div>
+          <h2 class="text-xl font-semibold text-gray-800">Pulsera de plata</h2>
+          <p class="text-gray-600 mt-2">$150.00</p>
+        </div>
+        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          Agregar
+        </button>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="bg-white rounded-lg shadow p-4 flex flex-col justify-between">
+        <div>
+          <h2 class="text-xl font-semibold text-gray-800">Collar de plata</h2>
+          <p class="text-gray-600 mt-2">$200.00</p>
+        </div>
+        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          Agregar
+        </button>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="bg-white rounded-lg shadow p-4 flex flex-col justify-between">
+        <div>
+          <h2 class="text-xl font-semibold text-gray-800">Anillo de plata</h2>
+          <p class="text-gray-600 mt-2">$350.00</p>
+        </div>
+        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          Agregar
+        </button>
+      </div>
+
     </div>
+  </main>
 
-    <!-- EJERCICIO 1: construye aquí tu página (header, main con #catalogo, footer).
-         Las instrucciones están en el README. -->
+  <!-- Footer -->
+  <footer class="mt-8 text-center text-gray-500 text-sm py-4">
+    <p>Desarrollado por el Equipo</p>
+  </footer>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
