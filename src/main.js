@@ -28,11 +28,64 @@ mostrarProductos(productos);
 
 // ------------------------------------------------------------
 // EJERCICIO 3 — Armar el pedido
-// El pedido es un arreglo con los productos que la persona va agregando.
 // ------------------------------------------------------------
-const pedido = []
+let pedido = []; // Cambiamos const por let para poder vaciarlo fácilmente
 
-// Escribe aquí tu código del Ejercicio 3
+// Elementos del HTML que necesitamos
+const listaPedidoHTML = document.getElementById('lista-pedido');
+const totalHTML = document.getElementById('total');
+const btnVaciar = document.getElementById('btn-vaciar');
+
+// 1. Escuchar los clics en el contenedor del catálogo (Delegación de eventos)
+catalogo.addEventListener('click', (evento) => {
+  // Buscamos si el clic fue en un botón "Agregar"
+  const boton = evento.target.closest('button[data-id]');
+  
+  if (!boton) return; // Si no hizo clic en un botón, no hacemos nada
+
+  // Obtenemos el ID del producto desde el botón
+  const id = Number(boton.dataset.id);
+  
+  // Buscamos el producto completo en nuestro arreglo de 'productos'
+  const productoSeleccionado = productos.find(p => p.id === id);
+  
+  // Lo agregamos al arreglo del pedido
+  pedido.push(productoSeleccionado);
+  
+  // Redibujamos la vista del pedido
+  mostrarPedido();
+});
+
+// 2. Función para dibujar los productos seleccionados y calcular el total
+function mostrarPedido() {
+  // Si el pedido está vacío, mostramos un mensaje
+  if (pedido.length === 0) {
+    listaPedidoHTML.innerHTML = '<li class="text-gray-400 text-sm">No hay productos aún.</li>';
+    totalHTML.textContent = '0.00';
+    return;
+  }
+
+  // Dibujamos cada producto con map()
+  listaPedidoHTML.innerHTML = pedido.map(p => `
+    <li class="flex justify-between items-center text-sm">
+      <span>${p.nombre}</span>
+      <span class="font-semibold">$${p.precio}</span>
+    </li>
+  `).join('');
+
+  // Calculamos el total usando reduce()
+  // Nota: Convertimos el precio a Number() porque en tus datos.js está como texto ("150.00")
+  const total = pedido.reduce((suma, p) => suma + Number(p.precio), 0);
+  
+  // Mostramos el total en pantalla
+  totalHTML.textContent = total.toFixed(2);
+}
+
+// 3. Botón para vaciar el pedido
+btnVaciar.addEventListener('click', () => {
+  pedido = []; // Vaciamos el arreglo
+  mostrarPedido(); // Redibujamos para que vuelva a cero
+});
 
 // ------------------------------------------------------------
 // EJERCICIO 4 — Filtrar por categoría
