@@ -90,5 +90,30 @@ btnVaciar.addEventListener('click', () => {
 // ------------------------------------------------------------
 // EJERCICIO 4 — Filtrar por categoría
 // ------------------------------------------------------------
+const botonesFiltro = document.querySelectorAll('.btn-filtro');
 
-// Escribe aquí tu código del Ejercicio 4
+botonesFiltro.forEach(boton => {
+  boton.addEventListener('click', (evento) => {
+    // Obtenemos la categoría del botón que fue clickeado
+    const categoriaSeleccionada = evento.target.dataset.categoria;
+
+    // 1. Llamar a mostrarProductos con la lista filtrada
+    if (categoriaSeleccionada === 'Todos') {
+      mostrarProductos(productos); // Todos muestra la lista completa[cite: 9]
+    } else {
+      const filtrados = productos.filter(p => p.categoria === categoriaSeleccionada);
+      mostrarProductos(filtrados);
+    }
+
+    // 2. Resaltar el botón activo con clases de Tailwind[cite: 9]
+    // Primero, regresamos todos los botones a su estado inactivo (fondo blanco)
+    botonesFiltro.forEach(btn => {
+      btn.classList.remove('bg-blue-600', 'text-white');
+      btn.classList.add('bg-white', 'text-blue-600', 'border', 'border-blue-600');
+    });
+
+    // Luego, le ponemos el estado activo (fondo azul) solo al botón clickeado
+    evento.target.classList.remove('bg-white', 'text-blue-600', 'border', 'border-blue-600');
+    evento.target.classList.add('bg-blue-600', 'text-white');
+  });
+});

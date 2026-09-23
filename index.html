@@ -13,24 +13,37 @@
     <p class="text-sm mt-1">Catálogo oficial de productos</p>
   </header>
 
-<!-- Contenedor principal dividido en 2 columnas: Catálogo (3/4) y Pedido (1/4) -->
+  <!-- Contenedor principal dividido en 2 columnas -->
   <main class="grow flex flex-col md:flex-row gap-6">
     
-    <!-- Catálogo de Productos -->
-    <div id="catalogo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:w-3/4">
-      <!-- Las tarjetas las genera JavaScript -->
+    <!-- Sección Izquierda: Filtros y Catálogo (Ocupa 3/4 partes) -->
+    <div class="md:w-3/4 flex flex-col gap-4">
+      
+      <!-- Filtros de Categoría -->
+      <div id="filtros" class="flex flex-wrap gap-2 mb-2">
+        <button data-categoria="Todos" class="btn-filtro bg-blue-600 text-white px-4 py-2 rounded transition">Todos</button>
+        <button data-categoria="Pulseras" class="btn-filtro bg-white text-blue-600 border border-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition">Pulseras</button>
+        <button data-categoria="Collares" class="btn-filtro bg-white text-blue-600 border border-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition">Collares</button>
+        <button data-categoria="Anillos" class="btn-filtro bg-white text-blue-600 border border-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition">Anillos</button>
+        <button data-categoria="Aretes" class="btn-filtro bg-white text-blue-600 border border-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition">Aretes</button>
+        <button data-categoria="Dijes" class="btn-filtro bg-white text-blue-600 border border-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition">Dijes</button>
+      </div>
+
+      <!-- Catálogo de Productos -->
+      <div id="catalogo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Las tarjetas las genera JavaScript -->
+      </div>
+      
     </div>
 
     <!-- Barra lateral: Mi Pedido -->
     <aside class="md:w-1/4 bg-white p-4 rounded-lg shadow h-fit sticky top-4">
       <h2 class="text-xl font-bold mb-4 border-b pb-2">Mi pedido</h2>
       
-      <!-- Aquí se dibujarán los productos seleccionados -->
       <ul id="lista-pedido" class="space-y-3 mb-4 min-h-25">
         <li class="text-gray-400 text-sm">No hay productos aún.</li>
       </ul>
       
-      <!-- Total y botón vaciar -->
       <div class="border-t pt-4">
         <p class="text-lg font-bold mb-3">Total: $<span id="total">0.00</span></p>
         <button id="btn-vaciar" class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition">
@@ -41,12 +54,11 @@
     
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (ahora está correctamente afuera del main) -->
   <footer class="mt-8 text-center text-gray-500 text-sm py-4">
     <p>Desarrollado por Movika</p>
   </footer>
 
-  <!-- Script que conecta con Vite y tu JavaScript -->
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
