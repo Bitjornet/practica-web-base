@@ -14,50 +14,18 @@
   </header>
 
   <!-- Main con la cuadrícula de 1 col en celular y 3 en md -->
-  <main class="flex-grow">
+  <main class="grow">
     <div id="catalogo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      
-      <!-- Tarjeta 1 -->
-      <div class="bg-white rounded-lg shadow p-4 flex flex-col justify-between">
-        <div>
-          <h2 class="text-xl font-semibold text-gray-800">Pulsera de plata</h2>
-          <p class="text-gray-600 mt-2">$150.00</p>
-        </div>
-        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-          Agregar
-        </button>
-      </div>
-
-      <!-- Tarjeta 2 -->
-      <div class="bg-white rounded-lg shadow p-4 flex flex-col justify-between">
-        <div>
-          <h2 class="text-xl font-semibold text-gray-800">Collar de plata</h2>
-          <p class="text-gray-600 mt-2">$200.00</p>
-        </div>
-        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-          Agregar
-        </button>
-      </div>
-
-      <!-- Tarjeta 3 -->
-      <div class="bg-white rounded-lg shadow p-4 flex flex-col justify-between">
-        <div>
-          <h2 class="text-xl font-semibold text-gray-800">Anillo de plata</h2>
-          <p class="text-gray-600 mt-2">$350.00</p>
-        </div>
-        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-          Agregar
-        </button>
-      </div>
-
+      <!-- Las tarjetas las genera JavaScript -->
     </div>
   </main>
 
   <!-- Footer -->
   <footer class="mt-8 text-center text-gray-500 text-sm py-4">
-    <p>Desarrollado por el Equipo</p>
+    <p>Desarrollado por Movika</p>
   </footer>
 
+  <!-- Script que conecta con Vite y tu JavaScript -->
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
