@@ -33,7 +33,13 @@
       <div id="catalogo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         <!-- Las tarjetas las genera JavaScript -->
       </div>
-      
+      <!-- NUEVO: Pedidos Registrados -->
+      <section class="mt-10 border-t pt-6">
+        <h2 class="text-2xl font-bold mb-4">Pedidos registrados</h2>
+        <div id="pedidos-registrados" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Las tarjetas de pedidos se generarán aquí -->
+        </div>
+      </section>
     </div>
 
     <!-- Barra lateral: Mi Pedido -->
@@ -50,6 +56,34 @@
           Vaciar pedido
         </button>
       </div>
+      <!-- Formulario del Cliente -->
+      <form id="form-cliente" class="mt-6 border-t pt-4">
+        <h3 class="font-bold mb-2">Datos del cliente</h3>
+        
+        <div class="mb-3">
+          <label for="nombre" class="block text-sm font-semibold">Nombre:</label>
+          <input type="text" id="nombre" class="w-full border border-gray-300 rounded px-2 py-1 mt-1 outline-none">
+          <p id="error-nombre" class="text-sm text-red-600 hidden">El nombre no puede estar vacío.</p>
+        </div>
+
+        <div class="mb-3">
+          <label for="telefono" class="block text-sm font-semibold">Teléfono:</label>
+          <input type="text" id="telefono" class="w-full border border-gray-300 rounded px-2 py-1 mt-1 outline-none">
+          <p id="error-telefono" class="text-sm text-red-600 hidden">Debe tener exactamente 10 dígitos.</p>
+        </div>
+
+        <div class="mb-3">
+          <label for="correo" class="block text-sm font-semibold">Correo:</label>
+          <input type="email" id="correo" class="w-full border border-gray-300 rounded px-2 py-1 mt-1 outline-none">
+          <p id="error-correo" class="text-sm text-red-600 hidden">Debe ser un correo válido.</p>
+        </div>
+
+        <p id="error-pedido" class="text-sm text-red-600 hidden mb-2">El pedido no puede estar vacío.</p>
+
+        <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition mt-2 font-bold">
+          Confirmar pedido
+        </button>
+      </form>
     </aside>
     
   </main>
